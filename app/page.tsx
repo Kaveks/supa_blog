@@ -1,10 +1,11 @@
-import Image from 'next/image'
+
+import FetchPosts from './posts/page'
 
 export default function Home() {
   return (
     <main>
       <div className=" container mx-auto h-screen bg-slate-400">
-        <h1>Posts</h1>
+        <FetchPosts/>
 
       </div>
     </main>
