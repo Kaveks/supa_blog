@@ -1,8 +1,11 @@
+"use client"
 import supabase from "@/app/config/supabaseClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { useRouter } from "next/navigation";
 
 const LoginPage = async() => {
+    const router= useRouter()
         
     async function signInWithGoogle() {
         const { data, error } = await supabase.auth.signInWithOAuth({
@@ -15,12 +18,15 @@ const LoginPage = async() => {
             },
         },
         })
+        router.refresh()
         console.log(data)
     }
-    signInWithGoogle()
+    
     async function signout() {
         const { error } = await supabase.auth.signOut()
+        router.refresh
       }
+     
       
     return ( 
         <>
